@@ -1,60 +1,22 @@
-#  Java Hibernate Advance Mappings
+# Hibernate Advance Mappings
 
-### Proje Kurulumu
+> Full Stack Web Development Bootcamp — Sprint 18, Day 4
 
-Projeyi öncelikle forklayın ve clone edin.
-Daha sonra projeyi IntellijIDEA kullanarak açınız. README.md dosyasını dikkatli bir şekilde okuyarak istenenleri yapmaya çalışın.
-Proje sayımız ilerledikçe proje yönetimimizi kolaylaştırmak adına projelerimizi belli klasör kalıplarında saklamak işimizi kolaylaştırmak adına iyi bir alışkanlıktır.
-Örnek bir Lokasyon: Workintech/Sprint_1/Etud.
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat-square&logo=postgresql&logoColor=white)
 
-### Hedeflerimiz:
+## About
 
-### Banking Rest Api
+Explores advanced Hibernate/JPA entity mappings including one-to-one and one-to-many relationships. This assignment demonstrates how to model relational database associations as object relationships in Java.
 
- ### Başlangıç
- * Spring Initializr kullanarak bir Spring Boot projesi oluşturun.
- * İçerisinde ```Spring Web``` dependency eklenmeli.
- * Maven dependency management sistemini kullanarak tüm dependencyleri install edin.
- * Uygulamanızı  ```8080``` portundan ayağa kaldırın.
- * Bir banka uygulaması için rest api dizayn etmeniz istenmektedir.
+## Key Concepts
 
-### Görev 1
-* Veri tabanı dizaynınız şu şekilde olmalı. Toplam 3 tablo yazmanız gerekmektedir.
-* ```address``` tablosu => (id, street, no, city, country, description) kolonlarından oluşmalı.
-* ```id``` primary_key olarak işaretlenmeli. ```description``` alanı optional set edilmeli
-* ```customer``` tablosu => (id, first_name, last_name, email, salary, address_id) bilgilerini içermeli.
-* Her Customer sadece bir tane adrese sahip olabilir. 
-* Herhangi bir customer ilgili tablodan silinirse Customer'a ait olan address bilgisi de veri tabanından silinmelidir.
-* Herhangi bir adress bilgisi veri tabanından silinirse ilgili dataya sahip olan customer objesi veri tabanından silinmemelidir.
-* ```account``` tablosu (id, account_name, money_amount, customer_id) kolonlarından oluşmalı.
-* ```id``` primary_key olarak işaretlenmeli.
-* Bir Customer'in birden çok Account'u olabilir.
+- `@OneToOne` mapping and shared primary keys
+- `@OneToMany` and `@ManyToOne` bidirectional mappings
+- Cascade types and fetch strategies (lazy vs. eager)
+- Join columns and foreign key management
 
- ### Görev 2
- *  ```controller```, ```service```, ```dao```, ```entity```,  isminde 4 adet daha paket oluşturunuz.
- * ```entity``` paketinin altına ```Address```, ```Customer```, ```Account``` isimli üç tane sınıf oluşturunuz.
- * ```Address```, ```Customer``` ve ```Account``` sınıfları project lombok annotationlarını kullanarak oluşturulmalılar.
- * ```Address``` ve ```Customer``` sınıflarının birbirleri arasındaki ilişkiyi tanımlayan annotationları kullanın.(One-to-One)
- * ```Customer``` ve ```Account``` sınıflarının birbirleri arasındaki ilişkiyi tanımlayan annotationları kullanın.(One-to-Many)
+## Bootcamp
 
- ### Görev 3
- * ```AddressController```, ```CustomerController```, ```AccountController``` isimli 3 tane controller yazmalısınız.
- * Amacımız CRUD işlemlerini tanımlayan endpointler yazmak. 
- * [GET]/workintech/address => veri tabanaında kayıtlı tüm address bilgilerini döner.
- * [GET]/workintech/address/{id} => İlgili id deki address objesini döner.
- * [POST]/workintech/address => Bir adet address objesini veri tabanına ekler.
- * [PUT]/workintech/address/{id} => İlgili id deki address objesinin değerlerini günceller.
- * [DELETE]/workintech/address/{id} => İlgili id değerindeki address objesini siler.
-
- * [GET]/workintech/customers => veri tabanında kayıtlı tüm customer bilgilerini döner.
- * [GET]/workintech/customers/{id} => İlgili id deki customer objesini dönmeli.
- * [POST]/workintech/customers => Bir adet customer objesini veri tabanına ekler
- * [PUT]/workintech/customers/{id} => İlgili id deki customer objesinin değerlerini günceller.
- * [DELETE]/workintech/customers/{id} => İlgili id değerindeki customer objesini siler.
-
-* [GET]/workintech/accounts => veri tabanında kayıtlı tüm account bilgilerini döner.
-* [GET]/workintech/accounts/{id} => İlgili id deki account objesini dönmeli.
-* [POST]/workintech/accounts/{customerId} => Parametre olarak gelen id ile ilgili customeri bulur ve Account objesini Customer ile ilişkilendirip veri tabanına kaydeder. 
-* [PUT]/workintech/accounts/{customerId} =>Parametre olarak gelen id ile ilgili customeri bulur ve Account objesinin yeni bilgilerini güncelleyip Customer ile ilişkilendirip veri tabanına kaydeder.
-* [DELETE]/workintech/accounts/{id} => İlgili id değerindeki account objesini siler.
-
+Part of the **Full Stack Web Development** program at [Workintech](https://www.workintech.com.tr/).
